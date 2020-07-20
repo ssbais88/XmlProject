@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+     http://www.springframework.org/schema/util
+     http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+	<util:list list-class="java.util.ArrayList" id="lobj">
+		<value>12345</value>
+		<value>1234567</value>
+	</util:list>
+	
+	<util:set set-class="java.util.HashSet" id="sobj">
+		<value>Khandwa</value>
+		<value>Ujjain</value>
+	</util:set>
+	
+	<util:map map-class="java.util.TreeMap" id="mobj">
+		<entry key="01" value="Java"/>
+		<entry key="02" value="Python"/>
+	</util:map>
+	
+	<util:properties id="pobj">
+		<prop key="driver">Oracle</prop>
+		<prop key="url">jdbc</prop>
+	</util:properties>
+	
+	
+
+	<bean class="com.app.sac.Student" name="std" p:sid="100">
+			<property name="phones">
+				<ref bean="lobj"/>
+			</property>
+			<property name="address" ref="sobj"/>
+			<property name="courses" ref="mobj"/>
+			<property name="db" ref="pobj"/>
+	</bean>
+	
+</beans>
